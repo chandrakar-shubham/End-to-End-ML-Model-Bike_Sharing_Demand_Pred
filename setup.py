@@ -24,6 +24,5 @@ setup(
     url='https://github.com/chandrakar-shubham/bike_sharing_demand_pred',
     license=license,
     packages=find_packages(exclude=('tests', 'docs'))
-    install_requires=requirements
-)
+    install_requires=requirements)
 

@@ -1,7 +1,15 @@
 from flask import Flask, request
 import pickle
+import pandas as pd
+import numpy as np
 
-from train import pr_col, categorical_features, scaler
+with open('pr_col.txt', 'r') as file:
+    pr_col = file.readlines()
+
+with open('categorical_features.txt', 'r') as file:
+    categorical_features = file.readlines()
+with open('scaler.pkl', 'rb') as f:
+    scaler = pickle.load(f)
 
 app = Flask(__name__)
 
@@ -36,12 +44,13 @@ def home():
 def predict():
     # Get input values from user
     input_data = request.json
+    input_data_dict = json.loads(input_data)
 
     # Use the pickled model to make predictions
-    prediction = model.predict(input_data)
+    prediction = inp_mdl_inp(input_data_dict)
 
     # Return the predicted value as JSON
     return {'prediction': prediction.tolist()}
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
