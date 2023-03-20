@@ -1,11 +1,9 @@
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import FunctionTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.model_selection import GridSearchCV
 import xgboost as xg
 import pandas as pd
 import numpy as np
@@ -117,7 +115,7 @@ final_pipe.score(X_test,y_test)
 
 final_pipe.predict(X_test)
 
-# Pickle the trained model and save it to a file
-with open('model.pkl', 'wb') as file:
-  
-  pickle.dump(final_pipe, file)
+
+# pickle the trained pipeline and save it to a file
+with open('final_pipe.pkl', 'wb') as file:
+    pickle.dump(final_pipe, file)
