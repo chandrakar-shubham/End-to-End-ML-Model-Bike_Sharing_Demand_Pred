@@ -42,7 +42,7 @@ parameters_dict = {
 
 xgb= xg.XGBRegressor(objective ='reg:squarederror',n_estimators=1400)
 
-file_path ='SeoulBikeData.csv'
+file_path = '../data/SeoulBikeData.csv'
 dict_rename_col = {'Temperature(°C)':'temp',
                    'Humidity(%)':'humidity',
                    'Wind speed (m/s)':'wind_speed',
@@ -65,7 +65,18 @@ num_col = ["temp","humidity","wind_speed","visibility"]
 cat_col = ["hour","seasons","holiday","functioning_day","day","month",'week_day']
 # Load the data into a pandas dataframe
 
-df = pd.read_csv(file_path,encoding = "ISO-8859-1")
+import os
+import pandas as pd
+
+# Get the absolute path of the script file
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the file path for the data file
+data_path = os.path.join(script_dir, 'data', 'SeoulBikeData.csv')
+
+# Load the data from the file
+df = pd.read_csv(data_path, encoding='ISO-8859-1')
+
 
 rel_cols = ['Date', 'Rented Bike Count', 'Hour', 'Temperature(°C)', 'Humidity(%)',
        'Wind speed (m/s)', 'Visibility (10m)', 'Seasons',
@@ -102,7 +113,7 @@ preprocessor = ColumnTransformer([
 ])
 
 final_pipe = Pipeline([
-        ('date_features', FunctionTransformer(lambda x: transform_date(x))),
+        ('date_features', FunctionTransformer(transform_date)),
         ('preprocessor', preprocessor),
         ('xgboost',xgb)
         ])
@@ -119,3 +130,6 @@ final_pipe.predict(X_test)
 # pickle the trained pipeline and save it to a file
 with open('final_pipe.pkl', 'wb') as file:
     pickle.dump(final_pipe, file)
+
+
+print("train.py executed")
