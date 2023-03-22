@@ -16,6 +16,7 @@ def predict():
     # get data from request
     data = request.get_json(force=True)
 
+    
     # convert data to pandas dataframe
     df = pd.DataFrame.from_dict(data)
 
