@@ -10,16 +10,20 @@ app = Flask(__name__)
 with open('final_pipe.pkl', 'rb') as file:
     model = pickle.load(file)
 
+@app.route('/')
+def homepage():
+    return 'hello world'
+
 # define API endpoint for making predictions
 @app.route('/predict', methods=['POST'])
 def predict():
     # get data from request
-    data = request.get_json(force=True)
+    data = request.get_json()
 
     data1 = json.loads(data)
 
     # convert data to pandas dataframe
-    df = pd.DataFrame.from_dict(data1,index=[0])
+    df = pd.DataFrame(data1)
 
     # make predictions
     predictions = model.predict(df)
@@ -31,3 +35,8 @@ def predict():
     return jsonify({'predictions': predictions.tolist()})
 
 print("app.py executed")
+
+if __name__ == '__main__':
+    app.run()
+
+print("app.py executed successfully")

@@ -13,9 +13,11 @@ contourpy==1.0.7
 cycler==0.11.0
 debugpy==1.6.6
 decorator==5.1.1
+distlib==0.3.6
 docutils==0.19
 executing==1.2.0
 fastjsonschema==2.16.3
+filelock==3.10.1
 Flask==2.2.3
 fonttools==4.39.2
 google-api-core==2.11.0
@@ -81,6 +83,7 @@ tornado==6.2
 traitlets==5.9.0
 uritemplate==4.1.1
 urllib3==1.26.15
+virtualenv==20.21.0
 wcwidth==0.2.6
 Werkzeug==2.2.3
 xgboost==1.7.4
