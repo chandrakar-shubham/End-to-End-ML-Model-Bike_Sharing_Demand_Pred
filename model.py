@@ -1,5 +1,6 @@
-from train import processor
-
+from train import *
+from sklearn.pipeline import Pipeline
+import pickle
 
 final_pipe = Pipeline([
         ('processor',processor),

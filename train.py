@@ -112,24 +112,9 @@ preprocessor = ColumnTransformer([
     ('num', num_preprocessor, num_col)
 ])
 
-final_pipe = Pipeline([
+processor = Pipeline([
         ('date_features', FunctionTransformer(transform_date)),
-        ('preprocessor', preprocessor),
-        ('xgboost',xgb)
+        ('preprocessor', preprocessor)
         ])
-
-final_pipe.fit(X_train,y_train)
-
-final_pipe.predict(X_train)
-
-final_pipe.score(X_test,y_test)
-
-final_pipe.predict(X_test)
-
-
-# pickle the trained pipeline and save it to a file
-with open('final_pipe.pkl', 'wb') as file:
-    pickle.dump(final_pipe, file)
-
 
 print("train.py executed")

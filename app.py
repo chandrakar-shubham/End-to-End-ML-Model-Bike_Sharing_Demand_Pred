@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request
 import pickle
 import pandas as pd
 import numpy as np
-from transform_date import transform_date
-
+from train import *
+import json
 app = Flask(__name__)
 
 # load the saved model
@@ -16,9 +16,10 @@ def predict():
     # get data from request
     data = request.get_json(force=True)
 
-    
+    data1 = json.loads(data)
+
     # convert data to pandas dataframe
-    df = pd.DataFrame.from_dict(data)
+    df = pd.DataFrame.from_dict(data1,index=[0])
 
     # make predictions
     predictions = model.predict(df)
@@ -28,3 +29,5 @@ def predict():
 
     # return predictions as JSON
     return jsonify({'predictions': predictions.tolist()})
+
+print("app.py executed")
