@@ -1,7 +1,5 @@
-Bike Sharing Demand Prediction
-========================
-
 # Bike Sharing Demand Prediction -ML regression Project
+=======================================================
 
 # Problem Description:
 
