@@ -1,5 +1,6 @@
-# Bike Sharing Demand Prediction -ML regression Project
-=======================================================
+# Bike Sharing Demand Prediction -ML regression Project (End to End)
+
+Prepare---> Build ---> Deploy
 
 # Problem Description:
 
