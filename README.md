@@ -39,5 +39,8 @@ Seasons - Winter, Spring, Summer, Autumn
 
 Holiday - Holiday/No holiday
 
-Functional Day - NoFunc(Non Functional Hours), Fun(Functional hours)
+Functional Day - NoFunc(Non Functional Hours),
+
+Fun(Functional hours)
+
 
