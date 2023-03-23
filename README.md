@@ -52,21 +52,21 @@ Fun(Functional hours)
 
 # How to install requirements
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 
 # Deploy model
 
 To deploy app run this command on prompt
 
-python app.py
+`python app.py`
 
 
 # Predict using data
 
 - Model accepts data in .json format
-- Send request to this './predict' link to predict data
+- Send request to this `'./predict'` link to predict data
 
 The demo API post request can be post using test.py file
 
-python test.py
+`python test.py`
